@@ -7,26 +7,29 @@ public class findFrime {
         int number = sc.nextInt();
         int n = 2;
         int count = 0;
-        while (count<number){
-            if(testPrime(n)){
-                count++;
-                System.out.println(n+" là số nguyên tố");
-            }
-            n++;
-        }
-    }
-    public static boolean testPrime(int n){
+        while (count < number) {
             if (n == 2) {
-                return true;
+                System.out.println(n + " là số nguyê tố");
+                n++;
+                count++;
             }
             if (n > 2) {
-                for (int i = 2; i < n; i++) {
-                    if (n % i == 0) {
-                        return false;
-                    }
+                if (testNumber(n)) {
+                    count++;
+                    System.out.println(n + " Là số nguyên tố");
                 }
+                n++;
             }
-        return true;
         }
     }
 
+    static boolean testNumber(int n) {
+        boolean flag = true;
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                flag = false;
+            }
+        }
+        return flag;
+    }
+}
